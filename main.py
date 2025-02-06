@@ -4,6 +4,7 @@ from PIL import ImageTk, Image
 import os
 import time
 import pygame
+from threading import Thread
 
 # Color and font constants
 YELLOW="#FFFF00"
@@ -15,7 +16,8 @@ FONT_NAME = "Courier"
 
 
 WORK_MIN = 25
-BREAK_MIN = 5
+SHORT_BREAK_MIN = 5
+LONG_BREAK_MIN=10
 
 SESSIONS=3
 
@@ -83,7 +85,7 @@ def next_phase():
     """
     global session_step, reps
     session_step+=1
-    if session_step>2:
+    if session_step>3:
         session_step=0
         reps+=1
     start_timer()    
@@ -102,7 +104,6 @@ def count_up(count, target):
     if count<target:
         timer=window.after(1000, count_up, count + 1, target)
     else:
-        print(f"Finished Break: session_step={session_step}, reps={reps}")
         play_sound(r"sound-6-95056.mp3", next_phase, delay=3000)      
 
 # Count up then down mechanism (clockwise timer)
@@ -122,31 +123,10 @@ def count_up_then_down(count, target_time, is_counting_up):
     if is_counting_up and count < target_time:
         timer = window.after(1000, count_up_then_down, count + 1, target_time, True)
     elif is_counting_up and count == target_time:
-        print(f"Finished Clockwise Work: session_step={session_step}, reps={reps}")  # Debug print
         play_sound(r"sound-6-95056.mp3", next_phase, delay=3000)    
     elif not is_counting_up and count > 0:
         timer = window.after(1000, count_up_then_down, count - 1, target_time, False)
     elif not is_counting_up and count == 0:
-        print(f"Finished Anti-clockwise Work: session_step={session_step}, reps={reps}")  # Debug print
-        play_sound(r"sound-6-95056.mp3", next_phase, delay=3000)
-
-# Countdown mechanism
-def count_down(count, is_break):
-    """
-    (Not used in the new flow, but retained if you wish to switch to a countdown display.)
-    """
-    global timer
-    minutes = math.floor(count / 60)
-    seconds = count % 60
-    if seconds < 10:
-        seconds = f"0{seconds}"
-    canvas.itemconfig(timer_text, text=f"{minutes}:{seconds}")  # Update timer display
-
-    rotate_pomodoro(total_time - count, total_time)  # Rotate image based on time elapsed
-    if count > 0:
-        timer = window.after(1000, count_down, count - 1, is_break)  # Decrease time for every second
-    else:
-        print(f"Finished Break: session_step={session_step}, reps={reps}")  # Debug print
         play_sound(r"sound-6-95056.mp3", next_phase, delay=3000)
 
 # Start the timer
@@ -160,29 +140,30 @@ def start_timer():
     """
     global total_time, session_step, reps
     work_sec = int(WORK_MIN * 60)
-    break_sec = int(BREAK_MIN * 60)
-    
+    short_break_sec = int(SHORT_BREAK_MIN * 60)
+    long_break_sec = int(LONG_BREAK_MIN * 60)
     #check if we have reached the total sessions.
     if reps>=SESSIONS:
         title_label.config(text="Done", fg=BLUE)
         return
-    
-    print(f"Starting Timer: session_step={session_step}, reps={reps}")  # Debug print
-
+        
     # Define the sequence explicitly
     if session_step == 0:
         title_label.config(text="Work", fg=YELLOW)
         total_time = work_sec
         count_up_then_down(0, work_sec, True)      # First work session, clockwise
     elif session_step == 1:
-        title_label.config(text="Break", fg=RED)
-        total_time = break_sec
-        count_up(0, break_sec)      # Break session, clockwise
+        title_label.config(text="Short Break", fg=RED)
+        total_time = short_break_sec
+        count_up(0, short_break_sec)      # Break session, clockwise
     elif session_step == 2:
         title_label.config(text="Work", fg=GREEN)
         total_time = work_sec
         count_up_then_down(work_sec, work_sec, False)     # Second work session, anti-clockwise
-
+    elif session_step == 3:
+        title_label.config(text="Long Break", fg=BLUE)
+        total_time = long_break_sec
+        count_up(0, long_break_sec)
 
 # Create the main window
 window = Tk()
