@@ -103,7 +103,7 @@ def count_up(count, target):
         timer=window.after(1000, count_up, count + 1, target)
     else:
         print(f"Finished Break: session_step={session_step}, reps={reps}")
-        play_sound(r"D:\Python's -- 100 Days of Code\Python's 100 days of code\DUAL-FLOW POMODORO -- Clockwise to Reverse Timer\sound-6-95056.mp3", next_phase, delay=3000)      
+        play_sound(r"sound-6-95056.mp3", next_phase, delay=3000)      
 
 # Count up then down mechanism (clockwise timer)
 def count_up_then_down(count, target_time, is_counting_up):
@@ -123,12 +123,12 @@ def count_up_then_down(count, target_time, is_counting_up):
         timer = window.after(1000, count_up_then_down, count + 1, target_time, True)
     elif is_counting_up and count == target_time:
         print(f"Finished Clockwise Work: session_step={session_step}, reps={reps}")  # Debug print
-        play_sound(r"D:\Python's -- 100 Days of Code\Python's 100 days of code\DUAL-FLOW POMODORO -- Clockwise to Reverse Timer\sound-6-95056.mp3", next_phase, delay=3000)    
+        play_sound(r"sound-6-95056.mp3", next_phase, delay=3000)    
     elif not is_counting_up and count > 0:
         timer = window.after(1000, count_up_then_down, count - 1, target_time, False)
     elif not is_counting_up and count == 0:
         print(f"Finished Anti-clockwise Work: session_step={session_step}, reps={reps}")  # Debug print
-        play_sound(r"D:\Python's -- 100 Days of Code\Python's 100 days of code\DUAL-FLOW POMODORO -- Clockwise to Reverse Timer\sound-6-95056.mp3", next_phase, delay=3000)
+        play_sound(r"sound-6-95056.mp3", next_phase, delay=3000)
 
 # Countdown mechanism
 def count_down(count, is_break):
@@ -147,7 +147,7 @@ def count_down(count, is_break):
         timer = window.after(1000, count_down, count - 1, is_break)  # Decrease time for every second
     else:
         print(f"Finished Break: session_step={session_step}, reps={reps}")  # Debug print
-        play_sound(r"D:\Python's -- 100 Days of Code\Python's 100 days of code\DUAL-FLOW POMODORO -- Clockwise to Reverse Timer\sound-6-95056.mp3", next_phase, delay=3000)
+        play_sound(r"sound-6-95056.mp3", next_phase, delay=3000)
 
 # Start the timer
 def start_timer():
@@ -196,7 +196,7 @@ title_label.grid(column=1, row=0)
 # Canvas & image
 canvas = Canvas(width=400, height=400, bg=BLACK, highlightthickness=0)
 # Load & resize the pomodoro image
-pomodoro_image = Image.open(r"D:\Python's -- 100 Days of Code\Python's 100 days of code\DUAL-FLOW POMODORO -- Clockwise to Reverse Timer\tomato.png")
+pomodoro_image = Image.open(r"tomato.png")
 pomodoro_image = pomodoro_image.resize((200, 200))
 rotated_image = ImageTk.PhotoImage(pomodoro_image)
 image_id = canvas.create_image(200, 200, image=rotated_image)
@@ -210,6 +210,4 @@ start_button.grid(column=0, row=2)
 reset_button = Button(text="Reset", highlightbackground=BLACK, command=reset_timer)
 reset_button.grid(column=2, row=2)
 
-pause_button= Button(text="Pause", highlightbackground=BLACK)
-pause_button.grid(column=3, row=2)
 window.mainloop()
