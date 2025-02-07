@@ -44,5 +44,5 @@ The timer follows this structured cycle:
 
 # Dual-Flow Pomodoro(Clockwise to Anti-Clockwise): 
 
-https://github.com/user-attachments/assets/d102cef8-5560-4511-ba11-6f6e713ccd26
+https://github.com/user-attachments/assets/3254bf21-e5cc-4d50-871d-a41bf14fe7e0
 
