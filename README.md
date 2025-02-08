@@ -1,7 +1,7 @@
-# DUAL-FLOW-POMODORO----Clockwise-to-Reverse-Timer
+# ECHO-POMODORO
 
 # Overview
-The DUAL-FLOW POMODORO is a productivity-enhancing Pomodoro timer that introduces a "clockwise-to-reverse" countdown technique. Unlike traditional Pomodoro timers, which count down from 25 minutes, this timer initially counts up (clockwise) from 00:00 to 25:00 and then counts down (reverse) from 25:00 to 00:00. This unique approach is designed to help procrastinators stay engaged and prevent distractions after breaks by reinforcing their work momentum.
+ECHO-POMODORO is an advanced time-management application designed to enhance productivity by introducing a dual-flow Pomodoro technique. Unlike traditional timers, it follows a clockwise and reverse countdown system, ensuring users stay engaged and avoid procrastination. The structured cycle of work and break sessions keeps the mind refreshed and focused.
 
 The timer follows this structured cycle:
 
@@ -12,13 +12,26 @@ The timer follows this structured cycle:
 5] **Repeat** for 'n' sessions without a visible repetitive pattern.
 
 # ✨ Features                                                                                  
-✅ Clockwise-to-Reverse Timer Flow – Starts counting forward (00:00 → 25:00), then switches to reverse (25:00 → 00:00).                                                                       
-✅ Customizable Work & Break Sessions – Allows users to adjust the work, short break, and long break durations.                                                                                
-✅ Seamless Session Transition – Automatically switches between work and break sessions without requiring manual input.                                                                
-✅ Enhanced Focus for Procrastinators – The reverse countdown prevents distractions and helps users stay focused after a break.                                                               
-✅ Visual & Audio Alerts – Provides alerts when sessions start or end, ensuring smooth transitions.                                                                                    
-✅ User-Friendly GUI – Simple, intuitive design with clear time progress indicators.           
-✅ Custom ‘n’ Sessions Cycle – Runs indefinitely in a unique, non-repetitive sequence, avoiding predictability.                                                                        
+1. **🔄 Dual-Flow Timer Mechanism**:
+•  Clockwise Work Timer: (00:00 → 25:00)
+•  Reverse Work Timer: (25:00 → 00:00)
+•  Encourages sustained focus without mental fatigue.
+  
+2. **⏳ Smart Break System**:
+•   Short Break (5 min) after each session.
+•   Long Break (10 min) after a full work cycle.
+•   Prevents burnout & maintains consistent efficiency.
+   
+3. **♾️ Continuous Sessions Without Visible Repetition**:
+•  The system runs for ‘n’ cycles dynamically.
+•  Prevents the mind from anticipating patterns, keeping engagement high.
+   
+4. **📢 Alarm & Notification Alerts**:
+•  Alerts when a session starts & ends.
+•  Helps in maintaining focus without needing manual tracking.
+   
+5. **🎨 Simple Yet Intuitive GUI**:
+•  A clean & distraction-free interface for seamless use.                                                                        
 
 # 💡 Why It's Useful?                                                                          
 🔹 Overcomes Procrastination – The reverse timer psychologically encourages users to complete tasks rather than quit after breaks.                                                            
@@ -42,7 +55,7 @@ The timer follows this structured cycle:
 🔹 **Playsound / Pygame** – For alarm and notification sounds. 
 
 
-# Dual-Flow Pomodoro(Clockwise to Anti-Clockwise): 
+# ECHO-POMODORO: 
 
-https://github.com/user-attachments/assets/3254bf21-e5cc-4d50-871d-a41bf14fe7e0
+https://github.com/user-attachments/assets/378c0c10-dc37-42b7-b029-7e7c2b61875a
 
