@@ -1,7 +1,7 @@
 # ECHO-POMODORO
 
 # Overview
-ECHO-POMODORO is an advanced time-management application designed to enhance productivity by introducing a dual-flow Pomodoro technique. Unlike traditional timers, it follows a clockwise and reverse countdown system, ensuring users stay engaged and avoid procrastination. The structured cycle of work and break sessions keeps the mind refreshed and focused.
+ECHO-POMODORO is an advanced time-management application designed to enhance productivity by introducing a Echo-Pomodoro technique. Unlike traditional timers, it follows a clockwise and reverse countdown system, ensuring users stay engaged and avoid procrastination. The structured cycle of work and break sessions keeps the mind refreshed and focused.
 
 The timer follows this structured cycle:
 
